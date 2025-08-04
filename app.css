@@ -1,0 +1,31 @@
+h1{
+    color: rgb(10, 10, 10);
+    /* border-color: aqua;
+    border-width: 5px;
+    border-style: solid;
+*/
+    border: 8px dashed rgba(11, 99, 150, .4);
+
+}
+
+
+
+li{
+    color: green;
+}
+
+h4{
+    color: #145cb5;
+}
+
+h2{
+    color: rgba(11, 99, 150, .2);
+}
+
+h3{
+    color: rgba(11, 99, 150, .4);
+}
+body{
+    background: navy;
+}
+

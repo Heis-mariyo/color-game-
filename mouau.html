@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Portal</title>
+    <link rel="stylesheet" href="mouau.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <h1>MICHAEL OKPARA</h1>
+            <p>University of Agriculture, Umudike</p>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Academia</a></li>
+                <li><a href="#">Registration</a></li>
+                <li><a href="#">Result</a></li>
+                <li><a href="#">Forms</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <span>Welcome back, CHIEMEZIEM MARIO</span>
+            <a href="#" class="logout">Log Out</a>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <aside class="sidebar">
+            <div class="menu-item">
+                <button>Pay Reparation Fee</button>
+                <ul>
+                    <li><a href="#">Reparation Fee</a></li>
+                </ul>
+            </div>
+            <div class="menu-item">
+                <button>Student Reg & Profile</button>
+            </div>
+            <div class="menu-item">
+                <button>Other Charges & Regs</button>
+            </div>
+        </aside>
+
+        <section class="content">
+            <div class="card">
+                <h2>Print Fee Receipt</h2>
+                <p>If the QR code is not displayed when printing the receipt, kindly make sure the <strong>background graphics</strong> checkbox is checked on your print dialogue. This will display the QR code on the receipt while printing.</p>
+
+                <form>
+                    <label for="session">Select Details to Print Receipt:</label>
+                    <div class="form-group">
+                        <select id="session" name="session">
+                            <option value="2024/2025">2024/2025</option>
+                            <option value="2023/2024">2023/2024</option>
+                        </select>
+                        <select id="charge-type" name="charge-type">
+                            <option value="school-charges">School Charges</option>
+                            <option value="hostel-fees">Hostel Fees</option>
+                        </select>
+                        <select id="semester" name="semester">
+                            <option value="">Select Semester</option>
+                            <option value="first">First Semester</option>
+                            <option value="second">Second Semester</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
