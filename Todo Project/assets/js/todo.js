@@ -1,27 +1,83 @@
-//check off specific todos by clicking
-$("ul").on("click", "li", function(){
-    $(this).toggleClass("completed");
-});
+$(function () {
+  const $input = $("#container input[type='text']");
+  const $list  = $("#container ul");
 
-//click on X to delete Todo
-$("ul").on("click", "span", function(event){
-    $(this).parent().fadeOut(500, function(){
-        $(this).remove();
-    }); 
-    event.stopPropagation();
-}); 
+  // Load tasks from localStorage on page load
+  loadTasks();
 
-$("input[type= 'text'").keypress(function(event){
-    if(event.which === 13){
-        //grabbing new todo text from input
-        var todoText = $(this).val();
-        $(this).val("");
-        //create a new li and add to ul
-        $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>")
+  // Add new todo on Enter
+  $input.on("keydown", function (e) {
+    if (e.key === "Enter" || e.which === 13) {
+      e.preventDefault();
+      const text = $(this).val().trim();
+      if (!text) return;
+      $(this).val("");
+      addTask(text);
+      saveTasks();
     }
-}); 
+  });
 
-$(".fa-plus").click(function(){
-    $("input[type= 'text'").fadeToggle()
-})
- 
+  // Delete todo
+  $list.on("click", "span", function (e) {
+    e.stopPropagation();
+    $(this).parent().fadeOut(200, function () {
+      $(this).remove();
+      saveTasks();
+    });
+  });
+
+  // Toggle completed
+  $list.on("click", "li", function () {
+    $(this).toggleClass("completed");
+    saveTasks();
+  });
+
+  // (Optional) Toggle input visibility with the plus icon
+  $(".fa-plus").on("click", function () {
+    $input.slideToggle(150);
+    $input.focus();
+  });
+
+  // ---- Helpers ----
+  function addTask(text, completed = false) {
+    const $li = $(
+      "<li><span><i class='fa fa-trash'></i></span> " + escapeHtml(text) + "</li>"
+    );
+    if (completed) $li.addClass("completed");
+    $list.append($li);
+  }
+
+  function saveTasks() {
+    const tasks = [];
+    $list.find("li").each(function () {
+      const textOnly = $(this)
+        .clone()
+        .children() // remove the <span> with the icon
+        .remove()
+        .end()
+        .text()
+        .trim();
+
+      tasks.push({
+        text: textOnly,
+        completed: $(this).hasClass("completed"),
+      });
+    });
+    localStorage.setItem("todos", JSON.stringify(tasks));
+  }
+
+  function loadTasks() {
+    const stored = JSON.parse(localStorage.getItem("todos")) || [];
+    stored.forEach(t => addTask(t.text, t.completed));
+  }
+
+  // Very small XSS-safe escape for any text typed in
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+});
