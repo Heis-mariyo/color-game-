@@ -1,0 +1,73 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-image: url(bacground.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+header {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    font-family: "google sans code";
+    margin-top: 10px;
+    width: 1200px;
+   
+}
+
+
+
+
+/* header {
+    background: rgba(0, 4, 255, 0.637);
+    padding: 5px;
+    display: flex;
+    aligt
+} */
+
+.header-container{
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    text-align: end;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    color: rgba(0, 4, 255, 0.637);
+    margin-left: 10px;
+    font-family: "google sans code";
+}
+
+footer {
+    text-align: center;
+    background-color: skyblue;
+    padding: 10px;
+}
+

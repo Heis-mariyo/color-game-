@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+        <title>Goodluck's Portfolio</title>
+    </head>
+    <body>
+        <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        </header>
+        <div class="intro">
+        <h1>Good luck</h1>
+        <p>I'm Good luck. I am a front end developer.</p>
+        </div>
+        <div class="view-work">
+        <button id="viewWorkBtn">View My Work</button>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 0.5rem;">
+        <button class="tab active" id="tab-projects" onclick="showTab('projects')">Projects</button>
+        <button class="tab" id="tab-socials" onclick="showTab('socials')">Socials</button>
+        </div>
+        <div class="tab-content" id="projects">
+        <h2>Projects</h2>
+        <ul class="projects-list">
+            <li>
+            <strong>Portfolio Website</strong><br>
+            A personal portfolio built with HTML, CSS, and JavaScript.
+            </li>
+            <li>
+            <strong>Weather App</strong><br>
+            A simple weather application using OpenWeather API.
+            </li>
+            <li>
+            <strong>Todo List</strong><br>
+            A responsive todo list app with local storage.
+            </li>
+        </ul>
+        </div>
+        <div class="tab-content" id="socials" style="display:none;">
+        <h2>Socials</h2>
+        <div class="socials">
+            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://telegram.org/" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+        </div>
+        <footer>
+        Good luck &copy; 2025
+        </footer>
+        <script>
+        function showTab(tab) {
+            document.getElementById('projects').style.display = tab === 'projects' ? 'block' : 'none';
+            document.getElementById('socials').style.display = tab === 'socials' ? 'block' : 'none';
+            document.getElementById('tab-projects').classList.toggle('active', tab === 'projects');
+            document.getElementById('tab-socials').classList.toggle('active', tab === 'socials');
+        }
+        window.onload = function() {
+            showTab('projects');
+            document.getElementById('viewWorkBtn').onclick = function() {
+            showTab('projects');
+            window.scrollTo({ top: document.getElementById('projects').offsetTop - 40, behavior: 'smooth' });
+            };
+        }
+        </script>
+    </body>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
